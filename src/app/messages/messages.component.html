@@ -1,0 +1,5 @@
+<div>
+	<h2>Messages</h2>
+	<button class="clear" (click)="mService.clear()">clear</button>
+	<div *ngFor='let messsage of mService.messages'>{{messsage}}</div>
+</div>

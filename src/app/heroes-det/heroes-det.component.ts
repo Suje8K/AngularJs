@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Hero} from '../hero';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {HeroService} from '../hero.service';
+import {DashboardService} from '../dashboard.service';
 
 @Component({
   selector: 'app-heroes-det',
@@ -14,7 +14,7 @@ export class HeroesDetComponent implements OnInit {
   @Input() hero: Hero;
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroService,
+    private dService: DashboardService,
     private location: Location) {}
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class HeroesDetComponent implements OnInit {
 
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getHero(id)
+    this.dService.getHero(id)
       .subscribe(hero => this.hero = hero);
   }
 
